@@ -45,9 +45,9 @@ class SMTPAlert(BaseAlert):
 
         try:
             logger.info("Connecting to %s port %s", self.host, self.port)
-            server = smtplib.SMTP_SSL(self.host, self.port)
+            server = smtplib.SMTP(self.host, self.port)
             server.ehlo()
-            server.login(self.user, self.password)
+            #server.login(self.user, self.password)
             server.sendmail(self.user, self.to, msg.as_string())
             logger.info('Email sent')
         except Exception as ex:
