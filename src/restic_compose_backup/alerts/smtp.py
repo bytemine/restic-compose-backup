@@ -3,12 +3,12 @@ import smtplib
 import logging
 from email.mime.text import MIMEText
 
-# from restic_compose_backup.alerts.base import BaseAlert
+from restic_compose_backup.alerts.base import BaseAlert
 
 logger = logging.getLogger(__name__)
 
 
-class SMTPAlert():
+class SMTPAlert(BaseAlert):
     name = 'smtp'
 
     def __init__(self, host, port, user, password, to, auth, ssl):
